@@ -46,9 +46,9 @@ export class ShoppingCartPage {
         await this.backToProductsButton.click();
     }
 
-    async getProductPriceValue() {
+    async getProductPriceValue(): Promise<number> {
         const priceSummaryLabel = (await this.priceSummary.textContent())!;
-        const priceSummaryValue = priceSummaryLabel.split(":")[1]?.trim();
+        const priceSummaryValue = parseFloat(priceSummaryLabel.split("$")[1]?.trim() ?? "0");
         return priceSummaryValue;
     }
 

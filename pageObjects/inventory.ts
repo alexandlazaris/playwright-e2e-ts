@@ -24,8 +24,9 @@ export class InventoryPage {
         return matchingProduct;
     }
 
-    async getProductPrice(product: Locator) {
-        const productPrice = product.locator(this.inventoryItemPrice).textContent();
-        return productPrice;
+    async getProductPrice(product: Locator):Promise<number> {
+        let productPriceString = await product.locator(this.inventoryItemPrice).textContent();
+        let price = parseFloat(productPriceString?.split("$")[1]?.trim() ?? "0");
+        return price;
     }
 }
