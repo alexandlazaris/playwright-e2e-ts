@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { BASE_URL, PRODUCTS } from '../constants';
+import { BASE_URL, PRODUCTS, DETAILS, LOGINS } from '../constants';
 import { LoginPage } from '../pageObjects/login';
 import { InventoryPage } from '../pageObjects/inventory';
 import { MenuBar } from '../pageObjects/menu';
@@ -20,7 +20,7 @@ test.beforeEach(async ({ page }) => {
 
 test('add 1 product to cart from inventory list and complete purchase', async ({ page }) => {
   await page.goto(BASE_URL);
-  await loginPage.validUserLogin('standard_user', 'secret_sauce');
+  await loginPage.validUserLogin(LOGINS.standard.username, LOGINS.standard.password);
 
   const product = await inventoryPage.addSingleProductToCart(PRODUCTS.bikeLight);
   const productPrice = await inventoryPage.getProductPrice(product);
@@ -31,7 +31,7 @@ test('add 1 product to cart from inventory list and complete purchase', async ({
 
   await menuBar.shoppingCarLink.click();
   await shoppingCartPage.checkoutButton.click();
-  await shoppingCartPage.fillCheckoutDetails("tom", "jerry", "9876");
+  await shoppingCartPage.fillCheckoutDetails(DETAILS.firstName, DETAILS.lastName, DETAILS.postalCode);
 
   // check product price hasn't changed
   const priceSummaryValue = await shoppingCartPage.getProductPriceValue();

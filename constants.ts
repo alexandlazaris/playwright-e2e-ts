@@ -7,4 +7,15 @@ export const PRODUCTS =
     "jacket": "Sauce Labs Fleece Jacket",
     "onesie": "Sauce Labs Onesie",
     "redShirt": "Test.allTheThings() T-Shirt (Red)",
+};
+export const DETAILS = {
+    firstName: "Firstly",
+    lastName: "Lastly",
+    postalCode: "3456"
+};
+export const LOGINS = {
+    "standard": {
+        "username": "standard_user",
+        "password": "secret_sauce"
+    }
 }
