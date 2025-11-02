@@ -3,7 +3,8 @@ Playwright tests in TypeScript targeting a demo web app
 
 target: https://www.saucedemo.com/
 
-Objective:
+## Objective:
+
 Develop an end-to-end test scenario for the successful purchase of any one of the listed products.
 Tasks:
 1. Document Test Scenarios:
@@ -20,3 +21,40 @@ Notes:
 
 Use the following valid credentials for testing:
 - Username: standard_user
+
+
+## Deps
+
+- nvm: manages global node/npm versions
+- yarn: build/package manager
+
+## Running
+
+- yarn playwright test --project=chromium --headed 
+- yarn playwright test
+
+## Scenarios needed
+
+
+### add 1 product to cart from inventory list and complete purchase
+
+1. login with valid user, confirm user is now in logged in state
+2. add a product to cart from product list, confirm cart number updates
+3. select shopping cart button, confirm selected product & details are stored
+4. start checkout process, submit user details
+5. confirm checkout overview invoice contains all the expected details & calcs
+6. finish & confirm thank you message is shown, cart is now empty, press back home
+7. log out of session, confirm logged out state
+
+### add all products to cart from inventory list and comlete purchase
+
+### add product to cart from product detail and complete purchase
+
+1. login with valid user, confirm user is now in logged in state
+2. select a product to open product detail
+3. add product to cart from product detail page, confirm cart number updates
+4. select shopping cart button, confirm selected product & details are stored
+5. start checkout process, submit user details
+6. confirm checkout overview invoice contains all the expected details & calcs
+7. finish & confirm thank you message is shown, cart is now empty, press back home
+8. log out of session, confirm logged out state
