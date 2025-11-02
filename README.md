@@ -46,8 +46,6 @@ Use the following valid credentials for testing:
 6. finish & confirm thank you message is shown, cart is now empty, press back home
 7. log out of session, confirm logged out state
 
-### add all products to cart from inventory list and comlete purchase
-
 ### add product to cart from product detail and complete purchase
 
 1. login with valid user, confirm user is now in logged in state
