@@ -18,12 +18,12 @@ test.beforeEach(async ({ page }) => {
 });
 
 
-test('add 1 product to cart from inventory list and complete purchase', async ({ page }) => {
+test('complete checkout for 1 inventory items', async ({ page }) => {
   await page.goto(BASE_URL);
   await loginPage.validUserLogin(LOGINS.standard.username, LOGINS.standard.password);
 
-  const product = await inventoryPage.addSingleProductToCart(PRODUCTS.bikeLight);
-  const productPrice = await inventoryPage.getProductPrice(product);
+  const product = await inventoryPage.addSingleProductToCart(PRODUCTS.onesie);
+  const price = await inventoryPage.getProductPrice(product);
 
   // check cart count increases to 1
   const badgeNumber = await menuBar.shoppingCartBadgeNumber.textContent();
@@ -33,9 +33,46 @@ test('add 1 product to cart from inventory list and complete purchase', async ({
   await shoppingCartPage.checkoutButton.click();
   await shoppingCartPage.fillCheckoutDetails(DETAILS.firstName, DETAILS.lastName, DETAILS.postalCode);
 
-  // check product price hasn't changed
+  // checkout total matches earlier calculated price
   const priceSummaryValue = await shoppingCartPage.getProductPriceValue();
-  expect(await productPrice).toEqual(priceSummaryValue);
+  expect(await price).toEqual(priceSummaryValue);
+
+  await shoppingCartPage.finishButton.click();
+
+  // check checkout success message
+  expect(shoppingCartPage.finishOrderMessage).toBeVisible();
+  await shoppingCartPage.goBackToProducts();
+
+  // check cart should be empty
+  expect(await menuBar.shoppingCartBadgeNumber.count()).toBe(0);
+});
+
+test('complete checkout for all inventory items', async ({ page }) => {
+  await page.goto(BASE_URL);
+  await loginPage.validUserLogin(LOGINS.standard.username, LOGINS.standard.password);
+
+  const numberOfProducts = Object.keys(PRODUCTS).length;
+
+  let product;
+  let totalPriceOfInventory = 0;
+
+  for (let [_, name] of Object.entries(PRODUCTS)) {
+    product = await inventoryPage.addSingleProductToCart(name);
+    let price = await inventoryPage.getProductPrice(product);
+    totalPriceOfInventory += price;
+  }
+
+  // check cart count increases to the total number of products added
+  const badgeNumber = await menuBar.shoppingCartBadgeNumber.textContent();
+  expect(parseInt(badgeNumber!)).toBe(numberOfProducts);
+
+  await menuBar.shoppingCarLink.click();
+  await shoppingCartPage.checkoutButton.click();
+  await shoppingCartPage.fillCheckoutDetails(DETAILS.firstName, DETAILS.lastName, DETAILS.postalCode);
+
+  // checkout total matches earlier calculated price 
+  const priceSummaryValue = await shoppingCartPage.getProductPriceValue();
+  expect(totalPriceOfInventory).toEqual(priceSummaryValue);
 
   await shoppingCartPage.finishButton.click();
 
