@@ -1,11 +1,12 @@
 # playwright-e2e-ts
-Playwright tests in TypeScript targeting a demo web app
+Playwright tests in TypeScript targeting a demo web app.
 
-target: https://www.saucedemo.com/
+Target app: https://www.saucedemo.com/
 
 ## Objective:
 
 Develop an end-to-end test scenario for the successful purchase of any one of the listed products.
+
 Tasks:
 1. Document Test Scenarios:
 - Outline the end-to-end test scenarios to achieve the objective.
@@ -23,18 +24,24 @@ Use the following valid credentials for testing:
 - Username: standard_user
 
 
-## Deps
+## Local deps
 
-- nvm: manages global node/npm versions
-- yarn: build/package manager
+- nvm: manages global node/npm versions, `0.40.3`
+- yarn: `v4.10.3`
+- node: `v24`
 
 ## Running
 
+1. `yarn install`
+2. now you're ready to run tests
+
+### Run examples
+
 - yarn playwright test --project=chromium --headed 
 - yarn playwright test
+- yarn playwright test --ui
 
 ## Scenarios needed
-
 
 ### add 1 product to cart from inventory list and complete purchase
 
