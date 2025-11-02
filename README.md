@@ -24,11 +24,12 @@ Use the following valid credentials for testing:
 - Username: standard_user
 
 
-## Local deps
+## Built with 
 
-- nvm: manages global node/npm versions, `0.40.3`
+- nvm: to manage global node/npm versions, `0.40.3`
 - yarn: `v4.10.3`
 - node: `v24`
+- playwright: `v1.56.1`
 
 ## Running
 
@@ -37,29 +38,14 @@ Use the following valid credentials for testing:
 
 ### Run examples
 
-- yarn playwright test --project=chromium --headed 
-- yarn playwright test
-- yarn playwright test --ui
+- `yarn playwright test --project=chromium --headed`  
+- `yarn playwright test`
+- `yarn playwright test --ui`
 
-## Scenarios needed
+> [!CAUTION]
+> I've found playwright's UI trace viewer feature to be of poor quality. I see certain test steps are excluded from logging and it's unclear how to resolve that in the UI itself.
 
-### add 1 product to cart from inventory list and complete purchase
+## Scenarios
 
-1. login with valid user, confirm user is now in logged in state
-2. add a product to cart from product list, confirm cart number updates
-3. select shopping cart button, confirm selected product & details are stored
-4. start checkout process, submit user details
-5. confirm checkout overview invoice contains all the expected details & calcs
-6. finish & confirm thank you message is shown, cart is now empty, press back home
-7. log out of session, confirm logged out state
-
-### add product to cart from product detail and complete purchase
-
-1. login with valid user, confirm user is now in logged in state
-2. select a product to open product detail
-3. add product to cart from product detail page, confirm cart number updates
-4. select shopping cart button, confirm selected product & details are stored
-5. start checkout process, submit user details
-6. confirm checkout overview invoice contains all the expected details & calcs
-7. finish & confirm thank you message is shown, cart is now empty, press back home
-8. log out of session, confirm logged out state
+- complete checkout for 1 inventory items
+- complete checkout for all inventory items
