@@ -1,3 +1,5 @@
+[![Playwright Tests](https://github.com/alexandlazaris/playwright-e2e-ts/actions/workflows/playwright.yml/badge.svg)](https://github.com/alexandlazaris/playwright-e2e-ts/actions/workflows/playwright.yml)
+
 # playwright-e2e-ts
 Playwright tests in TypeScript targeting a demo web app.
 
