@@ -20,14 +20,16 @@ export class InventoryPage {
         const matchingProduct = allProducts.filter({ has: this.page.locator('.inventory_item_name').getByText(productName) });
         const addButton = matchingProduct.locator('.btn_inventory')
         await addButton.click();
+        return matchingProduct;
+    }
+
+    async getProductPrice(product:Locator) {
+        const productPrice = product.locator(this.inventoryItemPrice).textContent();
+        return productPrice;
     }
 
     async showProductPreview() {
         // const imgLink = matchingProduct.locator('a')
         // await imgLink.click();
-    }
-
-    async openProductDetail(productName: string) {
-
     }
 }
