@@ -1,0 +1,16 @@
+{
+  "name": "playwright-e2e-ts",
+  "version": "1.0.0",
+  "main": "",
+  "repository": "https://github.com/alexandlazaris/playwright-e2e-ts",
+  "author": "alaz-linux",
+  "license": "",
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.9.2",
+    "playwright": "^1.56.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "packageManager": "yarn@4.10.3"
+}
