@@ -26,7 +26,7 @@ export class InventoryPage {
 
     async getProductPrice(product: Locator):Promise<number> {
         let productPriceString = await product.locator(this.inventoryItemPrice).textContent();
-        let price = parseFloat(productPriceString?.split("$")[1]?.trim() ?? "0");
-        return price;
+        let priceValue = parseFloat(productPriceString?.split("$")[1]?.trim() ?? "0");
+        return priceValue;
     }
 }
