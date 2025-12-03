@@ -1,4 +1,3 @@
-export const BASE_URL: string = "https://www.saucedemo.com/";
 export const PRODUCTS =
 {
     "backpack": "Sauce Labs Backpack",
@@ -13,9 +12,3 @@ export const DETAILS = {
     lastName: "Lastly",
     postalCode: "3456"
 };
-export const LOGINS = {
-    "standard": {
-        "username": "standard_user",
-        "password": "secret_sauce"
-    }
-}
