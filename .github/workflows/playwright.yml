@@ -15,6 +15,10 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: 24
+
+    - name: try to remove .yarnrc.yml 
+      run: rm .yarnrc.yml
+
     - name: Enable corepack
       run: corepack enable
 
