@@ -36,13 +36,13 @@ Use the following valid credentials for testing:
 ## Running
 
 1. `yarn install`
-2. now you're ready to run tests
+2. follow up with a run command from below
 
 ### Run examples
 
-- `yarn playwright test --project=chromium --headed`  
-- `yarn playwright test`
-- `yarn playwright test --ui`
+- `yarn playwright test` > run everything headless
+- `yarn playwright test --project=chromium --headed`  > run only 1 project with UI
+- `yarn playwright test --update-snapshots` > run everything headless & update snapshot baseline images
 
 > [!CAUTION]
 > I've found playwright's UI trace viewer feature to be of poor quality. I see certain test steps are excluded from logging and it's unclear how to resolve that in the UI itself.
@@ -52,3 +52,5 @@ Use the following valid credentials for testing:
 - complete checkout for 1 inventory items
 - complete checkout for all inventory items
 - check error messages for invalid accounts
+- compare snapshots of baseline images
+
