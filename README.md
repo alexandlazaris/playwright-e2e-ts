@@ -1,4 +1,4 @@
-[![Playwright Tests](https://github.com/alexandlazaris/playwright-e2e-ts/actions/workflows/playwright.yml/badge.svg)](https://github.com/alexandlazaris/playwright-e2e-ts/actions/workflows/playwright.yml)
+[![UI tests in PR](https://github.com/alexandlazaris/playwright-e2e-ts/actions/workflows/playwright.yml/badge.svg)](https://github.com/alexandlazaris/playwright-e2e-ts/actions/workflows/playwright.yml)
 
 # playwright-e2e-ts
 Playwright tests in TypeScript targeting a demo web app.
@@ -51,3 +51,4 @@ Use the following valid credentials for testing:
 
 - complete checkout for 1 inventory items
 - complete checkout for all inventory items
+- check error messages for invalid accounts

@@ -12,10 +12,10 @@ export class LoginPage {
         this.usernameInput = page.locator('#user-name');
         this.passwordInput = page.locator('#password');
         this.loginButton = page.locator('#login-button');
-        this.errorMessage = page.locator('.error-message-container');
+        this.errorMessage = page.locator('[data-test="error"]');
     }
     
-    async validUserLogin(username: string, password: string) {
+    async inputLoginAndSubmit(username: string, password: string) {
         await this.usernameInput.click();
         await this.usernameInput.fill(username);
         await this.passwordInput.click();
